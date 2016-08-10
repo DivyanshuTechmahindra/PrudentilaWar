@@ -9,6 +9,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".businessunit1.splashscreen.mpchart.BarChartExample">
+
+        </activity>
+        <activity android:name=".businessunit1.splashscreen.mpchart.AnotherBarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

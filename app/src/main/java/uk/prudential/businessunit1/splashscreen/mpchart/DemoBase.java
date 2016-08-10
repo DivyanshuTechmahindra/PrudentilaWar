@@ -25,10 +25,10 @@ public abstract class DemoBase extends FragmentActivity {
     };
 
     protected String[] mParties = new String[] {
-            "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
-            "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
-            "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
-            "Party Y", "Party Z"
+            "Client A", "Client B", "Client C", "Client D", "Client E", "Client F", "Client G", "Client H",
+            "Client I", "Client J", "Client K", "Client L", "Client M", "Client N", "Client O", "Client P",
+            "Client Q", "Client R", "Client S", "Client T", "Client U", "Client V", "Client W", "Client X",
+            "Client Y", "Client Z"
     };
 
     protected Typeface mTfRegular;
