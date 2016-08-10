@@ -30,10 +30,11 @@ public class ContactUser extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.contact_user);
         Context con = this;
-        Button mFloatingActionButton = (Button) findViewById(R.id.floatingActionButtonPersonalInfo2);
+        Button mFloatingActionButton2 = (Button) findViewById(R.id.floatingActionButtonPersonalInfo2);
         //mFloatingActionButton.setOnClickListener(this);
-        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+        mFloatingActionButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SmsDialog(ContactUser.this,"","");
@@ -41,7 +42,7 @@ public class ContactUser extends AppCompatActivity {
         });
         Button mFloatingActionButton3 = (Button) findViewById(R.id.floatingActionButtonPersonalInfo3);
         //mFloatingActionButton.setOnClickListener(this);
-        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+        mFloatingActionButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
