@@ -2,31 +2,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uk.prudential">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".businessunit1.splashscreen.SplashScreen">
+
+        </activity>
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".businessunit1.splashscreen.mpchart.BarChartExample">
+
+        </activity>
+        <activity android:name=".businessunit1.splashscreen.mpchart.AnotherBarActivity">
+
+        </activity>
+        <activity android:name=".businessunit1.splashscreen.customerlist.activity.CustomerListActivityMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".businessunit2.email.InboxEmailReplylFragment">
-        </activity>
-
-        <activity android:name=".businessunit2.email.ContactUser">
-        </activity>
-
-
-        <uses-permission android:name="android.permission.CALL_PHONE" />
-        <uses-permission android:name="android.permission.ACTION_CALL" />
-
-
     </application>
 
 </manifest>
