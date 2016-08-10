@@ -27,7 +27,7 @@ public class CustomerListActivityMain extends Activity implements SearchView.OnQ
         private SearchView mSearchView;
         private ListView mListView;
         private ArrayAdapter<String> mAdapter;
-    DataModel_CustomerList mSchema;
+        DataModel_CustomerList mSchema;
 
         private final String[] mStrings = new String[9];//= Cheeses.sCheeseStrings;
 
