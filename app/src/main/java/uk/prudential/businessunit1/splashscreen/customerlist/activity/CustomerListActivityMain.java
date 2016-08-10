@@ -3,6 +3,7 @@ package uk.prudential.businessunit1.splashscreen.customerlist.activity;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Window;
 import android.widget.ArrayAdapter;
@@ -20,7 +21,7 @@ import uk.prudential.businessunit1.splashscreen.customerlist.adapter.models.Data
 /**
  * Created by user on 8/10/2016.
  */
-public class CustomerListActivityMain extends Activity implements SearchView.OnQueryTextListener {
+public class CustomerListActivityMain extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
         private static final String TAG = "SearchViewFilterMode";
     ProgressHUD mProgressHUD2;
