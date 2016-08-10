@@ -28,7 +28,7 @@ public class ContactUser extends AppCompatActivity {
     public EditText tvMessage;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Context con = this;
         Button mFloatingActionButton = (Button) findViewById(R.id.floatingActionButtonPersonalInfo2);
@@ -36,6 +36,18 @@ public class ContactUser extends AppCompatActivity {
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SmsDialog(ContactUser.this,"","");
+            }
+        });
+        Button mFloatingActionButton3 = (Button) findViewById(R.id.floatingActionButtonPersonalInfo3);
+        //mFloatingActionButton.setOnClickListener(this);
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(ContactUser.this, InboxEmailReplylFragment.class);
+                ContactUser.this.startActivity(intent);
+
             }
         });
 
