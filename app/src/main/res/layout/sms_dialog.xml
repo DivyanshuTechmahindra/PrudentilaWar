@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
 
             android:textSize="@dimen/common_sign_in_up_text_size"
-            android:background="@drawable/button_rounded_green_shape"
+            android:background="#ff0000"
             android:text="OK" />
     </LinearLayout>
 </RelativeLayout>

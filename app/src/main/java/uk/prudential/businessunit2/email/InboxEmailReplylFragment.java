@@ -127,47 +127,4 @@ private void ReplyMessage(){
     }
 
 }
-});
-        Android will automatically choose clients avilable in your device and user will be free to choose any Email client he want
 }
-   /* private void ReplyMessage() {
-        try {
-               "receiverId": 2, { user id of the receiver}
-        "parentMessageId": 3, { Message id of message on which user replied }
-        "messageTitle": "Hi",
-                "message": "Hi, how are you?",
-                "attachmentFlag": 1, { 0 - No attachment, 1 - attachment(s) }
-        "attachmentsName": "abc.jpg,de.jpgf" { attachment(s) name }*/
-
-           /* JSONObject lObjParam = new JSONObject();
-            lObjParam.put(Constants.TAG_RECEIVERID, getArguments().getInt("receiverId"));
-            lObjParam.put(Constants.TAG_PARENTMESSAGEID, getArguments().getInt("parentMessageId"));
-            lObjParam.put(Constants.TAG_MESSAGETITLE, mEdtSubject.getText().toString().trim());
-            lObjParam.put(Constants.TAG_MESSAGE, mEdtMsg.getText().toString().trim());
-            lObjParam.put(Constants.TAG_ATTACHMENTFLAG, 0);
-            lObjParam.put(Constants.TAG_ATTACHMENTNAME, "");
-            WSRequestController.getInstance().requestToServer(getActivity(), WSConstants.URL_FOR_REPLY_MESSAGE, lObjParam.toString(), true, new ResponseListener() {
-                @Override
-                public void onResponseSuccess(String response) {
-                    AppLog.log("replyMessage onResponseSuccess  " + response);
-                    Toast.makeText(getActivity(), "" + response.toString(), Toast.LENGTH_SHORT).show();
-                    Fragment squadFragment = new DashBoardFragment();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.container_body, squadFragment, null);
-                    fragmentTransaction.commit();
-                }
-
-                @Override
-                public void onResponseError(String errorCode) {
-                    AppLog.log("doLogin onResponseError " + errorCode);
-                    Toast.makeText(getActivity(), "" + errorCode, Toast.LENGTH_SHORT).show();
-                }
-            });
-
-        } catch (Exception e) {
-            AppLog.logError("Exception from doRegistration in " + TAG + " " + e.getMessage());
-        }
-        // need to write a code to send email.
-    }*/
-
-    }

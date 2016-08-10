@@ -1,11 +1,15 @@
 package uk.prudential.businessunit1.splashscreen.customerlist.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -17,6 +21,7 @@ import uk.prudential.R;
 import uk.prudential.businessunit1.splashscreen.customerlist.ParserCustomerList.ParserCustomerList;
 import uk.prudential.businessunit1.splashscreen.customerlist.ProgressHUD;
 import uk.prudential.businessunit1.splashscreen.customerlist.adapter.models.DataModel_CustomerList;
+import uk.prudential.businessunit2.email.ContactUser;
 
 /**
  * Created by user on 8/10/2016.
@@ -40,7 +45,8 @@ public class CustomerListActivityMain extends AppCompatActivity implements Searc
             getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 
             setContentView(R.layout.activity_customerlist);
-
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Customer List");
 
             new fetchCustomerDetailsAsyncTask("").execute();
           //  setupSearchView();
@@ -66,7 +72,16 @@ public class CustomerListActivityMain extends AppCompatActivity implements Searc
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
     class fetchCustomerDetailsAsyncTask extends AsyncTask<String, Void, String> {
@@ -115,6 +130,14 @@ public class CustomerListActivityMain extends AppCompatActivity implements Searc
                         mStrings));
                 setupSearchView();
                 mListView.setTextFilterEnabled(true);
+                mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        Intent intent = new Intent(CustomerListActivityMain.this,ContactUser.class);
+                        startActivity(intent);
+                    }
+                });
 
             } catch (Exception e) {
                 e.printStackTrace();

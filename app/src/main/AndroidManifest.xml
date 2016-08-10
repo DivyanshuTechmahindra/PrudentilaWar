@@ -21,13 +21,15 @@
         <activity android:name=".businessunit1.splashscreen.mpchart.AnotherBarActivity">
 
         </activity>
-        <activity android:name=".businessunit1.splashscreen.customerlist.activity.CustomerListActivityMain">
+        <activity android:name=".businessunit1.splashscreen.customerlist.activity.CustomerListActivityMain"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".businessunit2.email.ContactUser"></activity>
     </application>
 
 </manifest>
