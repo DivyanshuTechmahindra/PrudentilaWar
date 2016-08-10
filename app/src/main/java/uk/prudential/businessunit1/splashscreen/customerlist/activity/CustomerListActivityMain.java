@@ -1,8 +1,10 @@
 package uk.prudential.businessunit1.splashscreen.customerlist.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -17,9 +19,13 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +35,7 @@ import uk.prudential.businessunit1.splashscreen.customerlist.ParserCustomerList.
 import uk.prudential.businessunit1.splashscreen.customerlist.ProgressHUD;
 import uk.prudential.businessunit1.splashscreen.customerlist.adapter.CustomAdapter;
 import uk.prudential.businessunit1.splashscreen.customerlist.adapter.models.DataModel_CustomerList;
+import uk.prudential.businessunit1.splashscreen.filter.FilterActivity;
 import uk.prudential.businessunit2.email.ContactUser;
 
 /**
@@ -37,12 +44,16 @@ import uk.prudential.businessunit2.email.ContactUser;
 public class CustomerListActivityMain extends AppCompatActivity implements SearchView.OnQueryTextListener {
     MenuItem item;
         private static final String TAG = "SearchViewFilterMode";
+    Spinner spinner_UserAge,spinner_fromage,spinner_toage,spinner_product,spinner_range;
+    Dialog dialogOptions;
     ProgressHUD mProgressHUD2;
-        private SearchView mSearchView;
+        private SearchView mSearchView ;
         private ListView mListView;
         private ArrayAdapter<String> mAdapter;
         DataModel_CustomerList mSchema;
+    ImageView iv_filter;
 
+    public static boolean condition=false;
         private final String[] mStrings = new String[9];//= Cheeses.sCheeseStrings;
 
 
@@ -56,6 +67,13 @@ public class CustomerListActivityMain extends AppCompatActivity implements Searc
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Customer List");
 
+        iv_filter = (ImageView)findViewById(R.id.iv_filter);
+        iv_filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog();
+            }
+        });
 
 
             new fetchCustomerDetailsAsyncTask("").execute();
@@ -159,8 +177,185 @@ public class CustomerListActivityMain extends AppCompatActivity implements Searc
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        Intent intent = new Intent(CustomerListActivityMain.this,ContactUser.class);
-                        startActivity(intent);
+//                        Intent intent = new Intent(CustomerListActivityMain.this,FilterActivity.class);
+//                        startActivity(intent);
+                       // showDialog();
+                    }
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+
+    public void showDialog() {
+//        // custom dialog
+         dialogOptions = new Dialog(CustomerListActivityMain.this);
+        dialogOptions.setContentView(R.layout.activity_filter);
+        dialogOptions.setTitle("Filter");
+        condition = true;
+
+        spinner_UserAge = (Spinner) dialogOptions.findViewById(R.id.spinnerage);
+
+        ArrayAdapter<String> adptSpnCategory = new ArrayAdapter<String>(this, R.layout.custom_spinner_item, getResources().getStringArray(R.array.age));
+        adptSpnCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_UserAge.setAdapter(adptSpnCategory);
+        spinner_UserAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                Toast.makeText(getBaseContext(), spinner_UserAge.getSelectedItem().toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        spinner_fromage = (Spinner) dialogOptions.findViewById(R.id.spinneragefrom);
+        ArrayAdapter<String> spinner_fromageCat = new ArrayAdapter<String>(this, R.layout.custom_spinner_item, getResources().getStringArray(R.array.age));
+        adptSpnCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_fromage.setAdapter(spinner_fromageCat);
+        spinner_fromage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                Toast.makeText(getBaseContext(), spinner_UserAge.getSelectedItem().toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        spinner_toage = (Spinner) dialogOptions.findViewById(R.id.spinnerageto);
+        ArrayAdapter<String> spinner_toageCat = new ArrayAdapter<String>(this, R.layout.custom_spinner_item, getResources().getStringArray(R.array.age));
+        adptSpnCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_toage.setAdapter(spinner_toageCat);
+        spinner_toage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                Toast.makeText(getBaseContext(), spinner_toage.getSelectedItem().toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        spinner_product = (Spinner) dialogOptions.findViewById(R.id.spinnerproduct);
+
+        ArrayAdapter<String> spinner_productcat = new ArrayAdapter<String>(this, R.layout.custom_spinner_item, getResources().getStringArray(R.array.product));
+        adptSpnCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_product.setAdapter(spinner_productcat);
+        spinner_product.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                Toast.makeText(getBaseContext(), spinner_product.getSelectedItem().toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        spinner_range = (Spinner) dialogOptions.findViewById(R.id.spinnerrange);
+        ArrayAdapter<String> spinner_rangecat = new ArrayAdapter<String>(this, R.layout.custom_spinner_item, getResources().getStringArray(R.array.range));
+        adptSpnCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_range.setAdapter(spinner_rangecat);
+        spinner_range.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                Toast.makeText(getBaseContext(), spinner_range.getSelectedItem().toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        TextView txtApply = (TextView)dialogOptions.findViewById(R.id.txtApply);
+        txtApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new fetchCustomerDetailsAsyncTask2("").execute();
+                dialogOptions.dismiss();
+
+            }
+        });
+        TextView txtClose = (TextView)dialogOptions.findViewById(R.id.txtClose);
+        txtClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 dialogOptions.dismiss();
+            }
+        });
+
+
+        dialogOptions.show();
+    }
+
+
+
+    class fetchCustomerDetailsAsyncTask2 extends AsyncTask<String, Void, String> {
+
+        private Exception exception;
+        String mID;
+
+        public fetchCustomerDetailsAsyncTask2(String id) {
+            mID = id;
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressHUD2 = ProgressHUD.show(CustomerListActivityMain.this,
+                    "Fetching Customer Details List....", true, true, null);
+        }
+
+        protected String doInBackground(String... urls) {
+            try {
+                ParserCustomerList deleteTruckDetails = new ParserCustomerList(CustomerListActivityMain.this);
+                return "";
+            } catch (Exception e) {
+                this.exception = e;
+                return null;
+            }
+        }
+
+        protected void onPostExecute(String feed) {
+
+            mProgressHUD2.dismiss();
+            try {
+
+                mSchema = ParserCustomerList.schema;
+                final List<DataModel_CustomerList> filteredModelList = new ArrayList<>();
+                //mStrings = mSchema.getList().size();
+                for(int i=0;i<mSchema.getList().size();i++) {
+                    mStrings[i] = mSchema.getList().get(i).getName().getFirst();
+                }
+
+                mSearchView = (SearchView) findViewById(R.id.search_view);
+
+                int id = mSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+                TextView textView = (TextView) mSearchView.findViewById(id);
+                textView.setTextColor(Color.BLACK);
+
+                //mSearchView.setLayoutParams(new ActionBar.LayoutParams(Gravity.RIGHT));
+                mListView = (ListView) findViewById(R.id.list_view);
+//                mListView.setAdapter(mAdapter = new ArrayAdapter<String>(CustomerListActivityMain.this,
+//                        android.R.layout.simple_list_item_1,
+//                        mStrings));
+
+                mListView.setAdapter(new CustomAdapter(CustomerListActivityMain.this,mSchema));
+                setupSearchView();
+                mListView.setTextFilterEnabled(true);
+                mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+//                        Intent intent = new Intent(CustomerListActivityMain.this,FilterActivity.class);
+//                        startActivity(intent);
+
                     }
                 });
 

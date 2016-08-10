@@ -1,6 +1,7 @@
 package uk.prudential.businessunit1.splashscreen.customerlist.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import uk.prudential.R;
 import uk.prudential.businessunit1.splashscreen.customerlist.activity.CustomerListActivityMain;
 import uk.prudential.businessunit1.splashscreen.customerlist.adapter.models.DataModel_CustomerList;
+import uk.prudential.businessunit1.splashscreen.filter.FilterActivity;
 
 /**
  * Created by user on 8/10/2016.
@@ -69,12 +71,14 @@ public class CustomAdapter extends BaseAdapter{
         holder.tv_planType.setText(mSchema.getList().get(position).getProducts().get(0).getType());
         holder.tv_percentage.setText("100%");
 
-        rowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context,"You Click "+mSchema.getList().get(position).getName().getFirst(),Toast.LENGTH_SHORT).show();
-            }
-        });
+//        rowView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context,"You Click "+mSchema.getList().get(position).getName().getFirst(),Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(context,FilterActivity.class);
+//                context.startActivity(intent);
+//            }
+//        });
 
 
         return rowView;

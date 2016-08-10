@@ -16,6 +16,7 @@ import java.net.UnknownHostException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import uk.prudential.businessunit1.splashscreen.customerlist.activity.CustomerListActivityMain;
 import uk.prudential.businessunit1.splashscreen.customerlist.adapter.models.DataModel_CustomerList;
 
 /**
@@ -27,8 +28,14 @@ public class ParserCustomerList {
     public ParserCustomerList(Activity activity) {
         super();
         this.mActivity = activity;
+        String url;
+        if(CustomerListActivityMain.condition == true){
+            url="https://dl.dropboxusercontent.com/u/41588641/search.json";
+        }
+        else{
+            url="https://dl.dropboxusercontent.com/u/41588641/customers.json";
+        }
 
-        String url="https://dl.dropboxusercontent.com/u/41588641/customers.json";
         POSTForFetchingDATA(url);
 
         // TODO Auto-generated constructor stub

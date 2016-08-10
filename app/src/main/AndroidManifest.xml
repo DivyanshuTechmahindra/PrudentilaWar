@@ -30,6 +30,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".businessunit2.email.ContactUser"></activity>
+        <activity android:name=".businessunit1.splashscreen.filter.FilterActivity"
+            android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>
