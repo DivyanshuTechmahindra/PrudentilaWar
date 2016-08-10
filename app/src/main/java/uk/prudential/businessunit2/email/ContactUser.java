@@ -31,9 +31,17 @@ public class ContactUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Context con = this;
-        Button mFloatingActionButton = (Button) findViewById(R.id.floatingActionButtonPersonalInfo);
+        Button mFloatingActionButton = (Button) findViewById(R.id.floatingActionButtonPersonalInfo2);
         //mFloatingActionButton.setOnClickListener(this);
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
+                Button mFloatingActionButton1 = (Button) findViewById(R.id.floatingActionButtonPersonalInfo1);
+        //mFloatingActionButton.setOnClickListener(this);
+        mFloatingActionButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_CALL);
