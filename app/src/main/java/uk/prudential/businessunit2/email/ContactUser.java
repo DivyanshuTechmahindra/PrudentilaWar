@@ -15,8 +15,13 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import uk.prudential.R;
 
@@ -26,23 +31,28 @@ import uk.prudential.R;
 //Test commit
 public class ContactUser extends AppCompatActivity {
     public EditText tvMessage;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contact_user);
         Context con = this;
-        Button mFloatingActionButton2 = (Button) findViewById(R.id.floatingActionButtonPersonalInfo2);
-        //mFloatingActionButton.setOnClickListener(this);
-        mFloatingActionButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SmsDialog(ContactUser.this,"","");
-            }
-        });
-        Button mFloatingActionButton3 = (Button) findViewById(R.id.floatingActionButtonPersonalInfo3);
+        ImageView mFloatingActionButton3 = (ImageView) findViewById(R.id.floatingActionButtonPersonalInfo3);
         //mFloatingActionButton.setOnClickListener(this);
         mFloatingActionButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SmsDialog(ContactUser.this, "SMS", "Here is sms msg");
+            }
+        });
+        ImageView mFloatingActionButton4 = (ImageView) findViewById(R.id.floatingActionButtonPersonalInfo4);
+        //mFloatingActionButton.setOnClickListener(this);
+        mFloatingActionButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -52,13 +62,13 @@ public class ContactUser extends AppCompatActivity {
             }
         });
 
-                Button mFloatingActionButton1 = (Button) findViewById(R.id.floatingActionButtonPersonalInfo1);
+        ImageView mFloatingActionButton2 = (ImageView) findViewById(R.id.floatingActionButtonPersonalInfo2);
         //mFloatingActionButton.setOnClickListener(this);
-        mFloatingActionButton1.setOnClickListener(new View.OnClickListener() {
+        mFloatingActionButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:" + "8860611845"));
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:8860611845"));
                 if (ActivityCompat.checkSelfPermission(ContactUser.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
@@ -69,13 +79,16 @@ public class ContactUser extends AppCompatActivity {
                     // for ActivityCompat#requestPermissions for more details.
                     return;
                 }
-                //ContactUser.this.startActivities(intent);
-
+                ContactUser.this.startActivity(callIntent);
             }
         });
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        // client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-    public  void SmsDialog(final Activity mActivity, String mtitle, String mMessage) {
+
+    public void SmsDialog(final ContactUser mActivity, String mtitle, String mMessage) {
 
         if (mActivity != null && mtitle != null && mtitle.length() > 0 && mMessage != null && mMessage.length() > 0) {
             final Dialog dialog = new Dialog(mActivity);
@@ -93,7 +106,7 @@ public class ContactUser extends AppCompatActivity {
             btOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sendSMS("8860611845",tvMessage.getText().toString());
+                    sendSMS("8860611845", tvMessage.getText().toString());
 
                     dialog.dismiss();
 
@@ -104,17 +117,18 @@ public class ContactUser extends AppCompatActivity {
     }
 
 
-    public void sendSMS(String phoneNo, String msg){
+    public void sendSMS(String phoneNo, String msg) {
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(phoneNo, null, msg, null, null);
             Toast.makeText(getApplicationContext(), "Message Sent",
                     Toast.LENGTH_LONG).show();
         } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(),ex.getMessage().toString(),
+            Toast.makeText(getApplicationContext(), ex.getMessage().toString(),
                     Toast.LENGTH_LONG).show();
             ex.printStackTrace();
         }
     }
+
 
 }

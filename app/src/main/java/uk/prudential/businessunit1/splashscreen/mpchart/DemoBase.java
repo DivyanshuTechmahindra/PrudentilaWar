@@ -16,7 +16,7 @@ import uk.prudential.R;
 /**
  * Baseclass of all Activities of the Demo Application.
  *
- * @author Philipp Jahoda
+ * @author
  */
 public abstract class DemoBase extends FragmentActivity {
 

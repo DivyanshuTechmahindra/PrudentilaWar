@@ -16,43 +16,46 @@
         android:layout_height="wrap_content"
         android:text="Hello World!" />
 
-    <Button
+    <ImageView
         android:id="@+id/floatingActionButtonPersonalInfo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:src="@drawable/job_msngr_floating_btn"
+        android:layout_margin="10dp" android:layout_alignParentRight="true"
+
+        android:src="@drawable/connect_but_ico"
          />
 
-    <Button
+    <ImageView
         android:id="@+id/floatingActionButtonPersonalInfo2"
         android:layout_below="@+id/floatingActionButtonPersonalInfo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:src="@drawable/job_msngr_floating_btn"
+        android:layout_margin="10dp" android:layout_alignParentRight="true"
+        android:src="@drawable/connect_call_ico"
         />
 
-    <Button
+    <ImageView
         android:id="@+id/floatingActionButtonPersonalInfo3"
         android:layout_below="@+id/floatingActionButtonPersonalInfo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:src="@drawable/job_msngr_floating_btn"
+        android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="10dp" android:layout_alignParentRight="true"
+
+        android:src="@drawable/connect_email_ico"
         />
 
-    <Button
+    <ImageView
         android:id="@+id/floatingActionButtonPersonalInfo4"
         android:layout_below="@+id/floatingActionButtonPersonalInfo3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:src="@drawable/job_msngr_floating_btn"
+        android:layout_margin="10dp" android:layout_alignParentRight="true"
+
+        android:src="@drawable/connect_chat_ico"
         />3
 
 </RelativeLayout>

@@ -151,4 +151,17 @@
         <item>109</item>
         <item>110</item>
     </string-array>
+
+    <!--/////onBoarding/////-->
+
+    <string name="txtonbording_Top1">Baggage Credit</string>
+    <string name="txtonbording_Top2">Here\'s an example</string>
+    <string name="txt_onbordingbottom1">From now on if you don\'t use all your checked baggage allowance, we\'ll save it for you to use next time - %1$s</string>
+    <string name="txt_onbordingbottom2">%1$s\'s standard checked baggage \nallowance is %2$s</string>
+    <string name="txtonbording_Top3">""</string>
+    <string name="txt_onbordingbottom3">...but %1$s\'s checked bag only \n weighs \n %2$s</string>
+    <string name="txtonbording_Top4">""</string>
+    <string name="txt_onbordingbottom41">Next time %1$s fly BA, as well as the\n standard 23kg allowance, %1$s has \n %2$s that you can use \n if his checked bag is overweight.</string>
+    <string name="gotit">Ok, got it</string>
+    <string name="next">Next</string>
 </resources>
