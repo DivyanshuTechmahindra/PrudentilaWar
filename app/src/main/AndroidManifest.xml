@@ -3,11 +3,6 @@
     package="uk.prudential">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,13 +18,10 @@
         <activity android:name=".businessunit1.splashscreen.mpchart.BarChartExample">
 
         </activity>
-        <activity android:name=".businessunit1.splashscreen.mpchart.AnotherBarActivity" />
-        <activity android:name=".businessunit2.email.InboxEmailReplylFragment">
-
+        <activity android:name=".businessunit1.splashscreen.mpchart.AnotherBarActivity">
 
         </activity>
-        <activity android:name=".businessunit2.email.CustomerActivity" />
-        <activity android:name=".businessunit2.email.onboarding.OnBoardingActivity" android:theme="@style/Theme.Design.Light.NoActionBar"
+        <activity android:name=".businessunit1.splashscreen.customerlist.activity.CustomerListActivityMain"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,15 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".businessunit1.splashscreen.customerlist.activity.CustomerListActivityMain"></activity>
-
         <activity android:name=".businessunit2.email.ContactUser"></activity>
         <activity android:name=".businessunit1.splashscreen.filter.FilterActivity"
-            android:theme="@android:style/Theme.Dialog"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>
